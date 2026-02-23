@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 09:22:18 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/02/23 14:00:29 by rhrandri         ###   ########.fr       */
+/*   Created: 2026/02/23 13:29:34 by rhrandri          #+#    #+#             */
+/*   Updated: 2026/02/23 13:37:53 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*get_next_line(int fd)
-{
-	static char	*stash;
-	char		*buf;
-	char		*nl;
-	char		*r;
-	char		tmp;
+# include <stdlib.h>
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-}
+char	ft_strchar(char *, int c);
+char	ft_strjoin(char const *s1, char const *s2);
+
+size_t	ft_strlen(char *str);
+
+#endif
