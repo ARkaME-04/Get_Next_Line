@@ -1,20 +1,12 @@
-#include <stdlib.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/23 09:22:18 by rhrandri          #+#    #+#             */
+/*   Updated: 2026/02/23 09:22:24 by rhrandri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char	*get_next_line(int fd)
-{
-	static char	*stash;
-	char		buffer[BUFFER_SIZE + 1];
-	int		bytes;
-
-
-	bytes = read(fd, buffer, BUFFER_SIZE);
-	buffer[bytes] = '\0';
-	if (fd < 0 || BUFFER_SIZE < 0)
-		return (NULL);
-	if (!stash)
-		stash = buffer;
-	if (stash != '\0')
-		stash = (stash + buffer);
-	return (NULL);
-}
