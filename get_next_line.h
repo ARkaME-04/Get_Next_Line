@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:29:34 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/02/25 08:36:35 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/02/25 13:14:55 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 5
 # endif
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
 
 char	*ft_strchr(char *str, int c);
 char	*ft_strjoin(char *s1, char *s2);

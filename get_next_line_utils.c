@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 09:26:07 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/02/25 08:36:23 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/02/25 14:17:12 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,6 @@ size_t	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-char	*ft_strdup(char *s1)
-{
-	unsigned int	i;
-	char			*s2;
-
-	if (!s1)
-		return (NULL);
-	s2 = (char *) malloc(ft_strlen(s1) + 1);
-	if (!s2)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		s2[i] = s1[i];
-		i++;
-	}
-	s2[i] = '\0';
-	return (s2);
 }
 
 char	*ft_strchr(char *str, int c)
@@ -84,26 +64,24 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (res);
 }
 
-char	*ft_substr(char *str, unsigned int start, size_t len)
+void	ft_bzero(void *s, unsigned int n)
 {
-	char	*s;
-	size_t	i;
+	unsigned char	*p;
 
-	if (!str)
+	p = s;
+	while (n--)
+		*p++ = '\0';
+}
+
+void	ft_calloc(unsigned int count, unsigned int size)
+{
+	void	*r;
+
+	if (count != 0 && size > SIZE_MAX / count)
 		return (NULL);
-	if (start >= ft_strlen(str))
-		return (ft_strdup(""));
-	if (len > ft_strlen(str + start))
-		len = ft_strlen(str + start);
-	s = malloc((len + 1) * sizeof(char));
-	if (!s)
+	r = malloc(count * size);
+	if (!r)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		s[i] = str[i + start];
-		i++;
-	}
-	s[i] = '\0';
-	return (s);
+	ft_bzer0(r, size * count);
+	return (r);
 }
