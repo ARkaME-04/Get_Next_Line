@@ -22,9 +22,10 @@
 # include <stdint.h>
 
 char	*ft_strchr(char *str, int c);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_substr(char *str, unsigned int start, size_t len);
 char	*ft_strdup(char *s1);
+
+void	ft_calloc(unsigned int count, unsigned int size);
+void	ft_bzero(char *s, unsigned int n);
 
 size_t	ft_strlen(char *str);
 
