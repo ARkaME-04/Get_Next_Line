@@ -6,13 +6,13 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 09:26:07 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/02/25 14:17:12 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/02/27 10:22:54 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	size_t	i;
 
