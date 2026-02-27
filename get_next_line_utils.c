@@ -14,7 +14,7 @@
 
 int	ft_strlen(const char *str)
 {
-	size_t	i;
+	int	i;
 
 	if (!str)
 		return (0);
@@ -73,7 +73,7 @@ void	ft_bzero(void *s, unsigned int n)
 		*p++ = '\0';
 }
 
-void	ft_calloc(unsigned int count, unsigned int size)
+void	*ft_calloc(unsigned int count, unsigned int size)
 {
 	void	*r;
 
@@ -82,6 +82,6 @@ void	ft_calloc(unsigned int count, unsigned int size)
 	r = malloc(count * size);
 	if (!r)
 		return (NULL);
-	ft_bzer0(r, size * count);
+	ft_bzero(r, size * count);
 	return (r);
 }

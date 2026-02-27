@@ -23,7 +23,7 @@ char	*fill_stash(char *stash, char *buf)
 
 char	*read_first_line(int fd, char *stash)
 {
-	char		*buf;
+	char	*buf;
 	int		bytes;
 
 	if (!stash)
@@ -52,13 +52,16 @@ char	*read_first_line(int fd, char *stash)
 
 char	*get_line(char *stash)
 {
-	int	i;
+	int		i;
 	char	*str;
 
 	i = 0;
 	if (!stash[i])
 		return (NULL);
+	while (stash[i] && stash[i] != '\n')
+		i++;
 	str = ft_calloc(i + 2, sizeof(char));
+	i = 0;
 	while (stash[i] && stash[i] != '\n')
 	{
 		str[i] = stash[i];
@@ -71,8 +74,8 @@ char	*get_line(char *stash)
 
 char	*clean_line(char *stash)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	*str;
 
 	i = 0;
@@ -87,9 +90,11 @@ char	*clean_line(char *stash)
 	str = ft_calloc(ft_strlen(stash) - i + 1, sizeof(*stash));
 	if (!str)
 		return (NULL);
-	while (stash[i++])
-		str[j++] = stash[i];
+	i++;
+	while (stash[i])
+		str[j++] = stash[i++];
 	str[j] = '\0';
+	free(stash);
 	return (str);
 }
 
@@ -98,7 +103,7 @@ char	*get_next_line(int fd)
 	char		*out;
 	static char	*stash;
 
-	if (fd < 0 || BUFFER_SIZE >= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	stash = read_first_line(fd, stash);
 	if (!stash)
@@ -106,21 +111,4 @@ char	*get_next_line(int fd)
 	out = get_line(stash);
 	stash = clean_line(stash);
 	return (out);
-}
-
-#include <fcntl.h>
-#include <stdio.h>
-
-int	main(void)
-{
-	int	fd;
-	fd = open("README.md", O_RDONLY);
-	char *s = get_next_line(fd);
-	while (s)
-	{
-		printf("%s", s);
-		s = get_next_line(fd);
-	}
-	free(s);
-	close(fd);
 }

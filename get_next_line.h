@@ -22,11 +22,16 @@
 # include <stdint.h>
 
 char	*ft_strchr(char *str, int c);
-char	*ft_strdup(char *s1);
+char	*ft_strjoin(char *s1, char *s2);
+char	*fill_stash(char *stash, char *buf);
+char	*read_first_line(int fd, char *stash);
+char	*get_line(char *stash);
+char	*clean_line(char *stash);
+char	*get_next_line(int fd);
 
-void	ft_calloc(unsigned int count, unsigned int size);
-void	ft_bzero(char *s, unsigned int n);
+void	*ft_calloc(unsigned int count, unsigned int size);
+void	ft_bzero(void *s, unsigned int n);
 
-size_t	ft_strlen(char *str);
+int		ft_strlen(const char *str);
 
 #endif
