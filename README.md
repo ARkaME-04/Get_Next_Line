@@ -58,3 +58,11 @@ gcc -D BUFFER_SIZE=42 main.c get_next_line.c get_next_line_utils.c
 ./a.out [a file]
 ```
 Output will write the whole content of the given file.
+
+## Resources:
+
+- Most of the research were done on Google Search Engine, apart, some other 42 students share their work on github for newcomers to get some knowledge and inspiration. Youtube tutorials were necessary in the use of static variables.
+
+- AI usage : As we all know, AI could just do all the work for us, but in this case it didn't, it was used only on syntax fixes, no blatant code at all. Syntax errors were a pain to repair manually, debugging also take so much time which I clearly don't have enough, so in that case i had to use some tools i had in hand.
+
+
