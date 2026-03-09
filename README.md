@@ -22,24 +22,26 @@ Example of a `main.c`
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include "get_next_line.h"
 
-
-int    main(argc, **argv)
+int main(int argc, char **argv)
 {
-    int        fd;
+    int     fd;
     char    *line;
 
-    void (argc);
+    if (argc < 2)
+        return (1);
+
     fd = open(argv[1], O_RDONLY);
-    line = "";
-    while (line != NULL)
+
+    while ((line = get_next_line(fd)) != NULL)
     {
-        line = get_next_line(fd);
         printf("%s", line);
         free(line);
     }
-    fd = close(fd);
+
+    close(fd);
     return (0);
 }
 ```
