@@ -54,10 +54,15 @@ gcc main.c get_next_line.c get_next_line_utils.c
 gcc -D BUFFER_SIZE=42 main.c get_next_line.c get_next_line_utils.c
 ```
 ### Execution:
+With a file:
 ```c
 ./a.out [a file]
 ```
-Output will write the whole content of the given file.
+With input:
+```c
+./a.out "whatever you put here"
+```
+Output will write the whole content of the given file, or print the input when pressing enter (use Ctrl + D to stop the program.
 
 ## Resources:
 
