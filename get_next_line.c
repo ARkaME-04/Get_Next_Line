@@ -104,11 +104,22 @@ char	*get_next_line(int fd)
 	static char	*stash;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
+	{
+		free(stash);
 		return (NULL);
+	}
 	stash = read_first_line(fd, stash);
 	if (!stash)
+	{
+		free(stash);
 		return (NULL);
+	}
 	out = get_line(stash);
 	stash = clean_line(stash);
+	if (stash && stash[0] == '\0')
+	{
+		free(stash);
+		stash = NULL;
+	}
 	return (out);
 }
